@@ -1,0 +1,27 @@
+{
+	"applicationId": "js.neutralino.memuro",
+	"version": "1.0.0",
+	"defaultMode": "window",
+	"documentRoot": "/vue-src/dist/",
+	"url": "/",
+	"enableServer": true,
+	"enableNativeAPI": true,
+	"nativeAllowList": ["app.*", "filesystem.*", "os.*"],
+	"modes": {
+		"window": {
+			"title": "Memuro",
+			"width": 800,
+			"height": 500,
+			"minWidth": 400,
+			"minHeight": 200,
+			"icon": "/vue-src/public/favicon.ico"
+		}
+	},
+	"cli": {
+		"binaryName": "Memuro",
+		"resourcesPath": "/vue-src/dist/",
+		"extensionsPath": "/extensions/",
+		"binaryVersion": "6.0.0",
+		"clientVersion": "6.0.0"
+	}
+}
