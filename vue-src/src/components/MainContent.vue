@@ -30,14 +30,17 @@
             v-if="isBrowser"
             :href="workspaceBookmark.url"
             class="hover:underline hover:text-blue-800 cursor-pointer"
-            >{{ workspaceBookmark.title }}</a
           >
+            {{ workspaceBookmark.title }}
+          </a>
           <span
             v-else
             @click="os.open(workspaceBookmark.url)"
             class="hover:underline hover:text-blue-800 cursor-pointer"
-            >{{ workspaceBookmark.title }}</span
           >
+            {{ workspaceBookmark.title }}
+          </span>
+          <span class="text-xs text-gray-400 italic">{{ getHostname(workspaceBookmark.url) }}</span>
         </div>
 
         <RouterLink
@@ -123,5 +126,13 @@ const toggleTransferBookmarks = () => {
   isTransferBookmarksMode.value = !isTransferBookmarksMode.value
 
   workspaceSwap.value = { ...defaultWorkspaceSwap }
+}
+
+const getHostname = (url) => {
+  try {
+    return new URL(url).hostname.replace(/^www\./, '')
+  } catch {
+    return null
+  }
 }
 </script>

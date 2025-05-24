@@ -14,6 +14,7 @@
           <button
             @click="dbStore.selectedWorkspaceId = element.id"
             class="text-left w-full px-2 py-1 rounded hover:bg-gray-200 cursor-pointer"
+            :class="{ 'bg-gray-300': dbStore.selectedWorkspaceId === element.id }"
           >
             {{ element.name }} <span class="text-xs">({{ element.bookmarksCount }})</span>
           </button>
