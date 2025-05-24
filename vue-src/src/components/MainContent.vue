@@ -26,9 +26,18 @@
             :value="workspaceBookmark.id"
             v-model="workspaceSwap.bookmarks"
           />
-          <a :href="workspaceBookmark.url" class="hover:underline hover:text-blue-800">{{
-            workspaceBookmark.title
-          }}</a>
+          <a
+            v-if="isBrowser"
+            :href="workspaceBookmark.url"
+            class="hover:underline hover:text-blue-800 cursor-pointer"
+            >{{ workspaceBookmark.title }}</a
+          >
+          <span
+            v-else
+            @click="os.open(workspaceBookmark.url)"
+            class="hover:underline hover:text-blue-800 cursor-pointer"
+            >{{ workspaceBookmark.title }}</span
+          >
         </div>
 
         <RouterLink
@@ -75,6 +84,8 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { useDatabaseStore } from '@/stores/databaseStore'
+import { isBrowser } from '@/lib/env'
+import { os } from '@neutralinojs/lib'
 import BookmarkIcon from '@/components/BookmarkIcon.vue'
 
 const dbStore = useDatabaseStore()

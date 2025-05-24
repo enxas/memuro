@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env VITE_BROWSER_RUNTIME=true vite",
     "build": "vite build",
-    "build:neutralino": "npm run pre:build:neutralino && vite build && npm run post:build:neutralino",
+    "build:neutralino": "npm install && npm run pre:build:neutralino && vite build && npm run post:build:neutralino",
     "pre:build:neutralino": "node build-scripts/prebuild.js",
     "post:build:neutralino": "node build-scripts/postbuild.js",
     "preview": "vite preview",
