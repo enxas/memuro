@@ -1,5 +1,5 @@
 <template>
-  <aside class="w-64 bg-gray-100 overflow-y-auto h-full p-4">
+  <aside class="bg-gray-100 w-max overflow-y-auto overflow-x-hidden h-full p-4 flex flex-col">
     <Draggable
       v-model="internalItems"
       item-key="id"
@@ -13,7 +13,7 @@
           <div class="handle cursor-move text-gray-400">≡</div>
           <button
             @click="dbStore.selectedWorkspaceId = element.id"
-            class="text-left w-full px-2 rounded hover:bg-gray-200 cursor-pointer"
+            class="text-left w-full px-2 rounded hover:bg-gray-200 cursor-pointer whitespace-nowrap"
             :class="{ 'bg-gray-300': dbStore.selectedWorkspaceId === element.id }"
           >
             {{ element.name }} <span class="text-xs">({{ element.bookmarksCount }})</span>

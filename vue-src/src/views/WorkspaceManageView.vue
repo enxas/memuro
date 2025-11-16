@@ -1,7 +1,7 @@
 <template>
   <div class="flex h-screen">
     <SideBar />
-    <div class="w-full mx-auto p-6 bg-white rounded-lg shadow-md">
+    <div class="flex-1 min-w-0 mx-auto p-6 bg-white rounded-lg shadow-md">
       <div class="flex justify-between">
         <h2 class="text-2xl font-bold mb-6 text-gray-800">{{ actionText }} Workspace</h2>
         <RouterLink :to="{ name: 'home' }" class="text-blue-700 hover:text-blue-400">

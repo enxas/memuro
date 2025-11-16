@@ -1,10 +1,10 @@
 <template>
-  <main class="w-full mx-auto p-6 bg-white rounded-lg shadow-md overflow-auto">
+  <main class="flex-1 min-w-0 mx-auto p-6 bg-white rounded-lg shadow-md">
     <div v-if="dbStore.selectedWorkspaceId === 0">No Workspace Selected</div>
     <div v-else>
       <div class="flex justify-between border-b border-gray-400 pb-3">
         <h2 class="text-2xl font-bold text-gray-800">
-          {{ dbStore.selectedWorkspaceName }} Bookmarks
+          {{ dbStore.selectedWorkspaceName }}
         </h2>
         <div class="flex space-x-2 items-center">
           <RouterLink
