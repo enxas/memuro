@@ -9,11 +9,11 @@
       @end="onDragEnd"
     >
       <template #item="{ element }">
-        <RouterLink :to="{ name: 'home' }" class="mb-2 flex items-center gap-2">
+        <RouterLink :to="{ name: 'home' }" class="mb-1 flex items-center gap-2">
           <div class="handle cursor-move text-gray-400">≡</div>
           <button
             @click="dbStore.selectedWorkspaceId = element.id"
-            class="text-left w-full px-2 py-1 rounded hover:bg-gray-200 cursor-pointer"
+            class="text-left w-full px-2 rounded hover:bg-gray-200 cursor-pointer"
             :class="{ 'bg-gray-300': dbStore.selectedWorkspaceId === element.id }"
           >
             {{ element.name }} <span class="text-xs">({{ element.bookmarksCount }})</span>

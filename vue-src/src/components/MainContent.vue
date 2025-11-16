@@ -2,16 +2,25 @@
   <main class="w-full mx-auto p-6 bg-white rounded-lg shadow-md overflow-auto">
     <div v-if="dbStore.selectedWorkspaceId === 0">No Workspace Selected</div>
     <div v-else>
-      <div class="flex justify-between border-b border-gray-400">
-        <h2 class="text-2xl font-bold mb-3 text-gray-800">
+      <div class="flex justify-between border-b border-gray-400 pb-3">
+        <h2 class="text-2xl font-bold text-gray-800">
           {{ dbStore.selectedWorkspaceName }} Bookmarks
         </h2>
-        <RouterLink
-          :to="{ name: 'workspacesUpdate', params: { id: dbStore.selectedWorkspaceId } }"
-          class="text-blue-700 hover:text-blue-400 text-sm"
-        >
-          Edit Workspace
-        </RouterLink>
+        <div class="flex space-x-2 items-center">
+          <RouterLink
+            :to="{ name: 'bookmarksCreate', query: { workspace: dbStore.selectedWorkspaceId } }"
+            class="text-blue-700 hover:text-blue-400 text-sm"
+          >
+            Add Bookmark
+          </RouterLink>
+          <span>|</span>
+          <RouterLink
+            :to="{ name: 'workspacesUpdate', params: { id: dbStore.selectedWorkspaceId } }"
+            class="text-blue-700 hover:text-blue-400 text-sm"
+          >
+            Edit Workspace
+          </RouterLink>
+        </div>
       </div>
       <div
         v-for="workspaceBookmark in dbStore.selectedWorkspaceBookmarks"
@@ -51,13 +60,6 @@
         </RouterLink>
       </div>
       <div class="flex mt-6 space-x-2 items-center">
-        <RouterLink
-          :to="{ name: 'bookmarksCreate', query: { workspace: dbStore.selectedWorkspaceId } }"
-          class="text-blue-700 hover:text-blue-400 text-sm"
-        >
-          Add Bookmark
-        </RouterLink>
-        <span>|</span>
         <span
           @click="toggleTransferBookmarks"
           class="text-blue-700 hover:text-blue-400 text-sm cursor-pointer"
